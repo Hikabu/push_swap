@@ -6,7 +6,7 @@
 /*   By: vfedorov <vfedorov@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/18 13:03:06 by vfedorov          #+#    #+#             */
-/*   Updated: 2023/05/23 19:05:35 by vfedorov         ###   ########.fr       */
+/*   Updated: 2023/06/04 18:30:30 by vfedorov         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -36,33 +36,28 @@ void	ft_duper(char **split)
 				write(2, "Error\n", 6);
 				exit(1);	
 			}
-		f++;
+			f++;
 		}
 		i++;
 	}
 }
 
-void	overflow(char **str)
+void	overflow(char **split)
 {
-	while (*str)
+	char	*nmb;
+	int		i;
+	
+	i = 0;
+	while (split[i])
 	{
-		if (*str[0] == '-')
+		nmb = ft_itoa(ft_atoi(split[i]));
+		if (ft_strncmp(nmb, split[i], ft_strlen(nmb) != 0
+			&& ft_strncmp(nmb, split[i], ft_strlen(split[i]) != 0)))
 		{
-			if (ft_atoi(*str) > 0)
-			{
-				write(2, "Error\n", 6);
-				exit(1);	
-			}
+			write(2, "Error\n", 6);
+			exit(1);
 		}
-		if (*str[0] != '-')
-		{
-			if (ft_atoi(*str) < 0)
-			{
-				write(2, "Error\n", 6);
-				exit(1);	
-			}
-		}
-		str++;
+		i++;
 	}
 }
 
@@ -87,6 +82,21 @@ void	chedigit(char **str)
 		}
 		str++;
 	}
+}
+
+int	empty(char **av)
+{
+	int	i;
+
+	i = 0;
+	while (av[i])
+	{
+		if (*av[i])
+			i++;
+		else
+			return (1);
+	}
+	return (0);
 }
 
 void	vse_errorbl(char **split)

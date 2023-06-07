@@ -1,12 +1,12 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   utils.c                                            :+:      :+:    :+:   */
+/*   parsandfill.c                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: vfedorov <vfedorov@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/31 11:25:31 by vfedorov          #+#    #+#             */
-/*   Updated: 2023/05/31 11:32:54 by vfedorov         ###   ########.fr       */
+/*   Updated: 2023/06/06 14:04:19 by vfedorov         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -33,8 +33,13 @@ void	parcfill(char **av, t_push **a)
 	int		i;
 
 	i = 1;
+	if (empty(av))
+	{
+		write(2, "Error\n", 6);
+		exit(1);
+	}
 	str = ft_strdup(av[i]);
-	i++;
+	i++;	
 	while (av[i])
 	{
 		tmp = ft_strjoin(str, " ");
@@ -74,6 +79,7 @@ t_push	filla(char **str, t_push **a)
 	{
 		t = (t_push *)malloc(sizeof(t_push));
 		t->nbr = ft_atoi(str[i]);
+		t->inx = -1;
 		t->next = NULL;
 		t->prev = ft_pushlast(*a);
 		if (*a)

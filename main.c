@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   main.c                                             :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: vfedorov <vfedorov@student.42.fr>          +#+  +:+       +#+        */
+/*   By: valeriafedorova <valeriafedorova@studen    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/11 12:45:51 by vfedorov          #+#    #+#             */
-/*   Updated: 2023/05/31 13:50:55 by vfedorov         ###   ########.fr       */
+/*   Updated: 2023/06/07 00:04:11 by valeriafedo      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,23 +14,33 @@
 
 int	sorted(t_push *a)
 {
-	while (a->nbr)
+	while (a->inx)
 	{
-		if (a->nbr > a->next->nbr)
+		if (a->next && a->next->inx < a->inx)
 			return (0);
-		a = a->next;
+		if (a->next && a->nbr > a->next->nbr)
+			return (0);
+		if (a->next && a->next->inx)
+			a = a->next;
+		else
+			 break ;
 	}
 	return (1);
 }
-void	push_swap(t_push **a, int size)
+
+void	push_swap(t_push **a, t_push **b, int size)
 {
-	if (size == 2 && !sorted(*a))
+	if (size == 2 && (*a)->inx < (*a)->next->inx)
 		sa(a);
 	else if (size == 3 && !sorted(*a))
 		trisort(a);
-	//else if(size > 3 && !sorted(*a))
-		//sortiruiy(a, b)
-	
+	else if (size == 5 && !sorted(*a))
+		fivsort(a, b);
+	else if (size > 5 && size <= 100)
+	{
+		butterfly(a, b, 15);
+		push_list_a(a, b, size);
+	}
 }
 
 int main(int ac, char **av)
@@ -43,44 +53,19 @@ int main(int ac, char **av)
 	{
 		a = NULL;
 		b = NULL;
-		pb(&a, &b);
-		sa(&a);
-		pb(&a, &b);
-		sb(&b);
 		parcfill(av, &a);
 		size = stack_size(a);
-		push_swap(&a, size);
-		givindex(a, size);
+		giveinx(&a, size);
+		push_swap(&a, &b, size);
 		
-	
-
-
-		
-		t_push *tmp;
-		tmp = a;
-		while (tmp)
-		{
-			printf("%d ", tmp->nbr);
-			tmp = tmp->next;			
-		}
+		// t_push *tmp;
+		// tmp = a;
+		// while (tmp)
+		// {
+		// 	printf("%d ", tmp->inx);
+		// 	tmp = tmp->next;			
+		// }
 	}
 	return (0);
 }
 
-
-
-// pb(&a, &b);
-		// ra(&a);
-		// pb(&a, &b);
-		// ra(&a);
-		// sa(&a);
-		// ra(&a);
-		// pa(&b, &a);
-		// pa(&b, &a);
-		// pb(&b, &a);
-		// pb(&b, &a);
-		// sb(&b);
-		// rotate(&a);
-		// write(1, "\n", 2);
-		// reverse(&a);
-		// write(1, "\n", 2);

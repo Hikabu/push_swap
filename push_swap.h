@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   push_swap.h                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: vfedorov <vfedorov@student.42.fr>          +#+  +:+       +#+        */
+/*   By: valeriafedorova <valeriafedorova@studen    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/25 11:51:40 by vfedorov          #+#    #+#             */
-/*   Updated: 2023/05/31 13:52:34 by vfedorov         ###   ########.fr       */
+/*   Updated: 2023/06/07 00:05:24 by valeriafedo      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -32,6 +32,7 @@ typedef struct s_push
 }	t_push;
 
 void	vse_errorbl(char **split);
+int		empty(char **av);
 t_push	*ft_pushlast(t_push *lst);
 int		stack_size(t_push *a);
 void	spli(char *str, t_push **a);
@@ -55,9 +56,15 @@ void	reverse(t_push **a);
 void	rra(t_push **a);
 void	rrb(t_push **b);
 void	rrr(t_push **a, t_push **b);
+void	sort(t_push **a, t_push **b, int size);
 
-void	givindex(t_push *a, int s_size);
-void	push_swap(t_push **a, int size);
+void	giveinx(t_push **a, int size);
+void	push_list_a(t_push **a, t_push **b, int size);
+void	butterfly(t_push **a, t_push **b, int n);
+int		find_max(t_push **b);
+int		my_sqrt(int n);
+int		fin(int n);
+void	push_swap(t_push **a, t_push **b, int size);
 int		sorted(t_push *a);
 void	trisort(t_push **a);
 void	fivsort(t_push **a, t_push **b);
