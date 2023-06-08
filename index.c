@@ -38,55 +38,43 @@ void giveinx(t_push **a, int size)
 	}
 }
 
-int	find_max(t_push **b)
+
+int	finmax(t_push **b)
 {
-	int		i;
-	int		j;
 	int		max;
-	t_push	*node;
+	t_push	*current;
 
-	i = 0;
-	j = 0;
-	node = *b;
-	max = node->inx;
-	node = node->next;
-	while (node)
+	max = INT_MIN;
+	current = *b;
+	while(current)
 	{
-		if (max < node->inx)
-		{
-			max = node->inx;
-			node = node->next;
-			j = ++i;
-		}
-		else
-		{
-			node = node->next;
-			i++;
-		}
+		if (current->nbr > max)
+			max = current->nbr;
+		current = current->next;
 	}
-	return (j);
+	printf("%d", max);
+	return (max);
 }
 
+// int	my_sqrt(int n)
+// {
+// 	int	i;
 
-int	my_sqrt(int n)
-{
-	int	i;
+// 	i = 1;
+// 	while (n / i != i)
+// 		i++;
+// 	return (i);
+// }
 
-	i = 1;
-	while (n / i != i)
-		i++;
-	return (i);
-}
+// int	fin(int n)
+// {
+// 	int	i;
 
-int	fin(int n)
-{
-	int	i;
-
-	i = 1;
-	while (n)
-	{
-		n /= 5;
-		i++;
-	}
-	return (i);
-}
+// 	i = 1;
+// 	while (n)
+// 	{
+// 		n /= 5;
+// 		i++;
+// 	}
+// 	return (i);
+// }

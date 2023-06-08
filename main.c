@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   main.c                                             :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: valeriafedorova <valeriafedorova@studen    +#+  +:+       +#+        */
+/*   By: vfedorov <vfedorov@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/11 12:45:51 by vfedorov          #+#    #+#             */
-/*   Updated: 2023/06/07 00:04:11 by valeriafedo      ###   ########.fr       */
+/*   Updated: 2023/06/08 15:07:32 by vfedorov         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -36,11 +36,11 @@ void	push_swap(t_push **a, t_push **b, int size)
 		trisort(a);
 	else if (size == 5 && !sorted(*a))
 		fivsort(a, b);
-	else if (size > 5 && size <= 100)
-	{
-		butterfly(a, b, 15);
-		push_list_a(a, b, size);
-	}
+	// else if (size > 5 && size <= 100)
+	// {
+	// 	butterfly(a, b, 15);
+	// 	pushba(a, b, size);
+	// }
 }
 
 int main(int ac, char **av)
@@ -57,6 +57,14 @@ int main(int ac, char **av)
 		size = stack_size(a);
 		giveinx(&a, size);
 		push_swap(&a, &b, size);
+		pb(&a, &b);
+		pb(&a, &b);
+		pb(&a, &b);
+		pb(&a, &b);
+		pb(&a, &b);
+		pb(&a, &b);
+		pb(&a, &b);
+		finmax(&b);
 		
 		// t_push *tmp;
 		// tmp = a;

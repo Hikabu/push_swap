@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   push_swap.h                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: valeriafedorova <valeriafedorova@studen    +#+  +:+       +#+        */
+/*   By: vfedorov <vfedorov@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/25 11:51:40 by vfedorov          #+#    #+#             */
-/*   Updated: 2023/06/07 00:05:24 by valeriafedo      ###   ########.fr       */
+/*   Updated: 2023/06/07 18:43:23 by vfedorov         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -59,14 +59,14 @@ void	rrr(t_push **a, t_push **b);
 void	sort(t_push **a, t_push **b, int size);
 
 void	giveinx(t_push **a, int size);
-void	push_list_a(t_push **a, t_push **b, int size);
+void	pusha(t_push **a, t_push **b, int size);
 void	butterfly(t_push **a, t_push **b, int n);
-int		find_max(t_push **b);
-int		my_sqrt(int n);
-int		fin(int n);
+// int		my_sqrt(int n);
+// int		fin(int n);
 void	push_swap(t_push **a, t_push **b, int size);
 int		sorted(t_push *a);
 void	trisort(t_push **a);
 void	fivsort(t_push **a, t_push **b);
+int		finmax(t_push **b);
 
 #endif
