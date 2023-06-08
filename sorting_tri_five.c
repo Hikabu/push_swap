@@ -6,7 +6,7 @@
 /*   By: vfedorov <vfedorov@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/11 12:46:09 by vfedorov          #+#    #+#             */
-/*   Updated: 2023/06/04 17:26:28 by vfedorov         ###   ########.fr       */
+/*   Updated: 2023/06/08 19:05:40 by vfedorov         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,6 +29,10 @@ void	trisort(t_push **a)
 		sa(a);
 }
 
+// void	chersor(t_push **a)
+// {
+// 	whl
+// }
 void	fivsort(t_push **a, t_push **b)
 {
 	while ((*a)->inx != 1)

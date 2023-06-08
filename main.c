@@ -6,7 +6,7 @@
 /*   By: vfedorov <vfedorov@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/11 12:45:51 by vfedorov          #+#    #+#             */
-/*   Updated: 2023/06/08 15:07:32 by vfedorov         ###   ########.fr       */
+/*   Updated: 2023/06/08 20:21:16 by vfedorov         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -34,13 +34,18 @@ void	push_swap(t_push **a, t_push **b, int size)
 		sa(a);
 	else if (size == 3 && !sorted(*a))
 		trisort(a);
+	// else if (size == 4 && !sorted(*a))
+	// 	//chersort(a);
+	// 	;
 	else if (size == 5 && !sorted(*a))
 		fivsort(a, b);
-	// else if (size > 5 && size <= 100)
-	// {
-	// 	butterfly(a, b, 15);
-	// 	pushba(a, b, size);
-	// }
+	else if (size > 5 && size <= 100)
+	{
+		butterfly(a, b, 1);
+		exit(0);
+		pusha(a, b);
+	}
+	
 }
 
 int main(int ac, char **av)
@@ -56,7 +61,7 @@ int main(int ac, char **av)
 		parcfill(av, &a);
 		size = stack_size(a);
 		giveinx(&a, size);
-		push_swap(&a, &b, size);
+		// push_swap(&a, &b, size);
 		pb(&a, &b);
 		pb(&a, &b);
 		pb(&a, &b);
@@ -64,15 +69,9 @@ int main(int ac, char **av)
 		pb(&a, &b);
 		pb(&a, &b);
 		pb(&a, &b);
-		finmax(&b);
-		
-		// t_push *tmp;
-		// tmp = a;
-		// while (tmp)
-		// {
-		// 	printf("%d ", tmp->inx);
-		// 	tmp = tmp->next;			
-		// }
+		rb(&b);
+		if (!a)
+			wrb(b);
 	}
 	return (0);
 }

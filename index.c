@@ -17,7 +17,7 @@ void giveinx(t_push **a, int size)
 	t_push *tmp;
 	int min;
 
-	i = 1;
+	i = 0;
 	while ( i <= size - 1)
 	{
 		tmp = *a;
@@ -38,43 +38,30 @@ void giveinx(t_push **a, int size)
 	}
 }
 
-
-int	finmax(t_push **b)
+void	pusha(t_push **a, t_push **b)
 {
-	int		max;
-	t_push	*current;
-
-	max = INT_MIN;
-	current = *b;
-	while(current)
+	while (*b)
 	{
-		if (current->nbr > max)
-			max = current->nbr;
-		current = current->next;
+		printf("%d",  (*b)->nbr);
+		if (*b > ft_pushlast(*b))
+			pa(a, b);
+		else 
+		{
+			rrb(b);
+			pa(a, b);
+		}
 	}
-	printf("%d", max);
-	return (max);
 }
 
-// int	my_sqrt(int n)
-// {
-// 	int	i;
+int	ft_pushsize(t_push *lst)
+{
+	int	str_len;
 
-// 	i = 1;
-// 	while (n / i != i)
-// 		i++;
-// 	return (i);
-// }
-
-// int	fin(int n)
-// {
-// 	int	i;
-
-// 	i = 1;
-// 	while (n)
-// 	{
-// 		n /= 5;
-// 		i++;
-// 	}
-// 	return (i);
-// }
+	str_len = 0;
+	while (lst != NULL)
+	{
+		lst = lst->next;
+		str_len++;
+	}
+	return (str_len);
+}
