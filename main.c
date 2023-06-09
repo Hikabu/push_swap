@@ -6,7 +6,7 @@
 /*   By: valeriafedorova <valeriafedorova@studen    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/11 12:45:51 by vfedorov          #+#    #+#             */
-/*   Updated: 2023/06/09 17:31:11 by valeriafedo      ###   ########.fr       */
+/*   Updated: 2023/06/09 19:15:25 by valeriafedo      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -40,9 +40,9 @@ void	push_swap(t_push **a, t_push **b, int size)
 		fivsort(a, b);
 	else if (size > 5 && size <= 100)
 	{
-		butterfly(a, b, 1);
+		butterfly(a, b, 7);
 		// wrb(*b);
-		pusha(a, b);
+		// pusha(a, b);
 	}
 	
 }
@@ -50,29 +50,40 @@ void	push_swap(t_push **a, t_push **b, int size)
 int main(int ac, char **av)
 {
 	t_push	*a;
-	// t_push	*b;
+	t_push	*b;
 	int		size;
 
 	if (ac > 1)
 	{
 		a = NULL;
-		// b = NULL;
+		b = NULL;
 		parcfill(av, &a);
 		size = stack_size(a);
 		giveinx(&a, size);
 		// rra(&a);
-		// push_swap(&a, &b, size);
-		// pb(&a, &b);
-		// pb(&a, &b);
-		// pb(&a, &b);
-		// pb(&a, &b);
-		// pa(&b, &a);
-		// pb(&a, &b);
-		// pb(&a, &b);
+		push_swap(&a, &b, size);
+		// ra(&a);
+		// ra(&a);
+		// ra(&a);
 		// pb(&a, &b);
 		// rb(&b);
-		printf("A:\n");
-		wrb(a);
+		// ra(&a);
+		// pb(&a, &b);
+		// rb(&b);
+		// ra(&a);
+		// ra(&a);
+		// pb(&a, &b);
+		// rb(&b);
+		// rrb(&b);
+		// pa(&b, &a);
+		// rrb(&b);
+		// pa(&b, &a);
+		// rrb(&b);
+		// pa(&b, &a);
+		
+		// rrb(&b);
+		// printf("A:\n");
+		// wrb(a);
 		// printf("B:\n");
 		// wrb(b);
 		// wrb(a);

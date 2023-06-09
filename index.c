@@ -43,7 +43,7 @@ void	pusha(t_push **a, t_push **b)
 	while (*b)
 	{
 		printf("%d", (*b)->nbr);
-		if (*b > ft_pushlast(*b))
+		if ((*b)->inx > ft_pushlast(*b)->inx)
 		{
 			// printf("%d", (*b)->nbr);
 			pa(b, a);
@@ -68,4 +68,27 @@ int	ft_pushsize(t_push *lst)
 		str_len++;
 	}
 	return (str_len);
+}
+
+int	my_sqrt(int n)
+{
+	int	i;
+
+	i = 1;
+	while (n / i != i)
+		i++;
+	return (i);
+}
+
+int	fin(int n)
+{
+	int	i;
+
+	i = 1;
+	while (n)
+	{
+		n /= 5;
+		i++;
+	}
+	return (i);
 }

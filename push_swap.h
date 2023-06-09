@@ -6,7 +6,7 @@
 /*   By: valeriafedorova <valeriafedorova@studen    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/25 11:51:40 by vfedorov          #+#    #+#             */
-/*   Updated: 2023/06/09 16:58:43 by valeriafedo      ###   ########.fr       */
+/*   Updated: 2023/06/09 19:18:21 by valeriafedo      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -64,8 +64,8 @@ void	sort(t_push **a, t_push **b, int size);
 void	giveinx(t_push **a, int size);
 int		ft_pushsize(t_push *lst);
 void	butterfly(t_push **a, t_push **b, int n);
-// int		my_sqrt(int n);
-// int		fin(int n);
+int		my_sqrt(int n);
+int		fin(int n);
 void	push_swap(t_push **a, t_push **b, int size);
 int		sorted(t_push *a);
 void	trisort(t_push **a);
