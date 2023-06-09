@@ -6,7 +6,7 @@
 /*   By: valeriafedorova <valeriafedorova@studen    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/11 12:45:51 by vfedorov          #+#    #+#             */
-/*   Updated: 2023/06/10 00:07:27 by valeriafedo      ###   ########.fr       */
+/*   Updated: 2023/06/10 00:52:34 by valeriafedo      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -67,10 +67,10 @@ int main(int ac, char **av)
 		// rra(&a);
 		push_swap(&a, &b, size);
 		// rrb(&b);
-		printf("A:\n");
-		wrb(a);
-		printf("B:\n");
-		// wrb(÷b);
+		// printf("A:\n");
+		// wrb(a);
+		// printf("B:\n");
+		// // wrb(÷b);
 		// wrb(a);
 	}
 	return (0);

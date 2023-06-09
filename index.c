@@ -44,6 +44,7 @@ void	pusha(t_push **a, t_push **b, int size)
 	{
 		if ((*b)->inx > ft_pushlast(*b)->inx)
 		{
+			// pa(a,b);
 			write(1, "pa\n", 3);
 			butter_push(a, b);
 			size--;
@@ -55,6 +56,10 @@ void	pusha(t_push **a, t_push **b, int size)
 			butter_push(a, b);
 			size--;
 		}
+		dprintf(1, "A:\n");
+	wrb(*a);
+	dprintf(1, "B:\n");
+	wrb(*b);
 	}
 }
 
