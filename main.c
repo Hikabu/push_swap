@@ -6,7 +6,7 @@
 /*   By: valeriafedorova <valeriafedorova@studen    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/11 12:45:51 by vfedorov          #+#    #+#             */
-/*   Updated: 2023/06/09 19:15:25 by valeriafedo      ###   ########.fr       */
+/*   Updated: 2023/06/09 19:56:32 by valeriafedo      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,6 +30,9 @@ int	sorted(t_push *a)
 
 void	push_swap(t_push **a, t_push **b, int size)
 {
+	// int	n;
+
+	// n = my_sqrt(size) + fin(size); 
 	if (size == 2 && (*a)->inx < (*a)->next->inx)
 		sa(a);
 	else if (size == 3 && !sorted(*a))
@@ -40,9 +43,9 @@ void	push_swap(t_push **a, t_push **b, int size)
 		fivsort(a, b);
 	else if (size > 5 && size <= 100)
 	{
-		butterfly(a, b, 7);
+		butterfly(a, b, 1);
 		// wrb(*b);
-		// pusha(a, b);
+		pusha(a, b, size);
 	}
 	
 }
@@ -83,10 +86,10 @@ int main(int ac, char **av)
 		
 		// rrb(&b);
 		// printf("A:\n");
-		// wrb(a);
+		// wrb(b);
 		// printf("B:\n");
 		// wrb(b);
-		// wrb(a);
+		wrb(a);
 	}
 	return (0);
 }

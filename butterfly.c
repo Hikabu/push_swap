@@ -6,7 +6,7 @@
 /*   By: valeriafedorova <valeriafedorova@studen    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/06/04 18:32:39 by vfedorov          #+#    #+#             */
-/*   Updated: 2023/06/09 19:14:29 by valeriafedo      ###   ########.fr       */
+/*   Updated: 2023/06/09 19:45:28 by valeriafedo      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -42,7 +42,7 @@ void	butterfly(t_push **a, t_push **b, int n)
 		else
 			ra(a);
 	}
-	wrb(*b);
+	// wrb(*b);
 }
 
 
@@ -53,7 +53,7 @@ void	wrb(t_push *b)
 	cur = b;
 	while (cur)
 	{
-		printf("%d\n", cur->inx);
+		printf("%d\n", cur->nbr);
 		cur = cur->next;
 	}
 }
@@ -73,4 +73,27 @@ int	finmax(t_push **b)
 	}
 	printf("%d", max);
 	return (max);
+}
+
+int	my_sqrt(int n)
+{
+	int	i;
+
+	i = 1;
+	while (n / i != i)
+		i++;
+	return (i);
+}
+
+int	fin(int n)
+{
+	int	i;
+
+	i = 1;
+	while (n)
+	{
+		n /= 5;
+		i++;
+	}
+	return (i);
 }

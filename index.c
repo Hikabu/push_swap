@@ -38,21 +38,21 @@ void giveinx(t_push **a, int size)
 	}
 }
 
-void	pusha(t_push **a, t_push **b)
+void	pusha(t_push **a, t_push **b, int size)
 {
-	while (*b)
+	while (size)
 	{
-		printf("%d", (*b)->nbr);
+
 		if ((*b)->inx > ft_pushlast(*b)->inx)
 		{
-			// printf("%d", (*b)->nbr);
 			pa(b, a);
+			size--;
 		}
 		else 
 		{
-			// printf("%d", (*b)->nbr);
 			rrb(b);
 			pa(b, a);
+			size--;
 		}
 	}
 }
@@ -70,25 +70,3 @@ int	ft_pushsize(t_push *lst)
 	return (str_len);
 }
 
-int	my_sqrt(int n)
-{
-	int	i;
-
-	i = 1;
-	while (n / i != i)
-		i++;
-	return (i);
-}
-
-int	fin(int n)
-{
-	int	i;
-
-	i = 1;
-	while (n)
-	{
-		n /= 5;
-		i++;
-	}
-	return (i);
-}

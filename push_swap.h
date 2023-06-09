@@ -6,7 +6,7 @@
 /*   By: valeriafedorova <valeriafedorova@studen    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/25 11:51:40 by vfedorov          #+#    #+#             */
-/*   Updated: 2023/06/09 19:18:21 by valeriafedo      ###   ########.fr       */
+/*   Updated: 2023/06/09 19:57:31 by valeriafedo      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -39,7 +39,7 @@ void	spli(char *str, t_push **a);
 void	parcfill(char **av, t_push **a);
 t_push	filla(char **str, t_push **a);
 void	wrb(t_push *b);
-void	pusha(t_push **a, t_push **b);
+void	pusha(t_push **a, t_push **b, int size);
 int		finmax(t_push **b);
 
 

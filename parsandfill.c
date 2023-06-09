@@ -6,7 +6,7 @@
 /*   By: valeriafedorova <valeriafedorova@studen    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/31 11:25:31 by vfedorov          #+#    #+#             */
-/*   Updated: 2023/06/09 19:21:13 by valeriafedo      ###   ########.fr       */
+/*   Updated: 2023/06/09 19:52:44 by valeriafedo      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -60,9 +60,9 @@ t_push	*ft_pushlast(t_push *lst)
 {
 	if (!lst)
 		return (NULL);
-	while (lst->next)
+	while (lst)
 	{
-		if (lst && lst-> next == NULL)
+		if (lst-> next == NULL)
 			return (lst);
 		lst = lst->next;
 	}
