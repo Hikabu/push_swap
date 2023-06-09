@@ -6,7 +6,7 @@
 /*   By: valeriafedorova <valeriafedorova@studen    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/31 11:25:31 by vfedorov          #+#    #+#             */
-/*   Updated: 2023/06/09 19:52:44 by valeriafedo      ###   ########.fr       */
+/*   Updated: 2023/06/09 23:38:52 by valeriafedo      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -58,13 +58,16 @@ void	parcfill(char **av, t_push **a)
 
 t_push	*ft_pushlast(t_push *lst)
 {
+	t_push	*tmp;
 	if (!lst)
 		return (NULL);
 	while (lst)
 	{
 		if (lst-> next == NULL)
 			return (lst);
+		tmp = lst; 
 		lst = lst->next;
+		lst->prev = tmp;
 	}
 	return (lst);
 }

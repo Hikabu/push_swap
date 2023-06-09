@@ -6,7 +6,7 @@
 /*   By: valeriafedorova <valeriafedorova@studen    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/11 12:45:51 by vfedorov          #+#    #+#             */
-/*   Updated: 2023/06/09 19:56:32 by valeriafedo      ###   ########.fr       */
+/*   Updated: 2023/06/10 00:07:27 by valeriafedo      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -45,6 +45,7 @@ void	push_swap(t_push **a, t_push **b, int size)
 	{
 		butterfly(a, b, 1);
 		// wrb(*b);
+		
 		pusha(a, b, size);
 	}
 	
@@ -65,31 +66,12 @@ int main(int ac, char **av)
 		giveinx(&a, size);
 		// rra(&a);
 		push_swap(&a, &b, size);
-		// ra(&a);
-		// ra(&a);
-		// ra(&a);
-		// pb(&a, &b);
-		// rb(&b);
-		// ra(&a);
-		// pb(&a, &b);
-		// rb(&b);
-		// ra(&a);
-		// ra(&a);
-		// pb(&a, &b);
-		// rb(&b);
 		// rrb(&b);
-		// pa(&b, &a);
-		// rrb(&b);
-		// pa(&b, &a);
-		// rrb(&b);
-		// pa(&b, &a);
-		
-		// rrb(&b);
-		// printf("A:\n");
-		// wrb(b);
-		// printf("B:\n");
-		// wrb(b);
+		printf("A:\n");
 		wrb(a);
+		printf("B:\n");
+		// wrb(÷b);
+		// wrb(a);
 	}
 	return (0);
 }

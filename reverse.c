@@ -6,7 +6,7 @@
 /*   By: valeriafedorova <valeriafedorova@studen    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/30 14:21:37 by vfedorov          #+#    #+#             */
-/*   Updated: 2023/06/09 17:09:56 by valeriafedo      ###   ########.fr       */
+/*   Updated: 2023/06/09 23:34:25 by valeriafedo      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,9 +23,12 @@ void	reverse(t_push **a)
 		tail = *a;
 		top = ft_pushlast(tail);
 		top->next = tail;
-		pretail = top->prev;
-		if (pretail)
+		if (top-> prev)
+		{
+			pretail = top->prev;
 			pretail->next = NULL;
+			top->prev = NULL;
+		}
 		*a = top;
 		
 		// dprintf(1, "%d", (*a)->nbr);

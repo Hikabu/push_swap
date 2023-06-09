@@ -42,16 +42,17 @@ void	pusha(t_push **a, t_push **b, int size)
 {
 	while (size)
 	{
-
 		if ((*b)->inx > ft_pushlast(*b)->inx)
 		{
-			pa(b, a);
+			write(1, "pa\n", 3);
+			butter_push(a, b);
 			size--;
 		}
 		else 
 		{
 			rrb(b);
-			pa(b, a);
+			write(1, "pa\n", 3);
+			butter_push(a, b);
 			size--;
 		}
 	}

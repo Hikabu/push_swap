@@ -6,7 +6,7 @@
 /*   By: valeriafedorova <valeriafedorova@studen    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/25 11:51:40 by vfedorov          #+#    #+#             */
-/*   Updated: 2023/06/09 19:57:31 by valeriafedo      ###   ########.fr       */
+/*   Updated: 2023/06/09 21:48:12 by valeriafedo      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -71,5 +71,6 @@ int		sorted(t_push *a);
 void	trisort(t_push **a);
 void	chersort(t_push **a, t_push **b);
 void	fivsort(t_push **a, t_push **b);
+void	butter_push(t_push **a, t_push **b);
 
 #endif
