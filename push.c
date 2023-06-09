@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   push.c                                             :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: vfedorov <vfedorov@student.42.fr>          +#+  +:+       +#+        */
+/*   By: valeriafedorova <valeriafedorova@studen    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/29 12:26:04 by vfedorov          #+#    #+#             */
-/*   Updated: 2023/06/08 20:17:31 by vfedorov         ###   ########.fr       */
+/*   Updated: 2023/06/09 15:52:37 by valeriafedo      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,7 +26,7 @@ void	push(t_push **to, t_push **from)
 		if (*to)
 			(*to)->prev = tmp;
 		*to = tmp;
-		printf("%d\n", (*to)->nbr);
+		// printf("%d\n", (*to)->nbr);
 	}
 }
 

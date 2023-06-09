@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   reverse.c                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: vfedorov <vfedorov@student.42.fr>          +#+  +:+       +#+        */
+/*   By: valeriafedorova <valeriafedorova@studen    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/30 14:21:37 by vfedorov          #+#    #+#             */
-/*   Updated: 2023/05/30 16:44:09 by vfedorov         ###   ########.fr       */
+/*   Updated: 2023/06/09 17:09:56 by valeriafedo      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,14 +16,18 @@ void	reverse(t_push **a)
 {
 	t_push	*top;
 	t_push	*tail;
+	t_push	*pretail;
 
 	if (*a && (*a)->next)
 	{
 		tail = *a;
 		top = ft_pushlast(tail);
-		*a = tail->next;
-		tail->next = NULL;
 		top->next = tail;
+		pretail = top->prev;
+		if (pretail)
+			pretail->next = NULL;
+		*a = top;
+		
 		// dprintf(1, "%d", (*a)->nbr);
 		// dprintf(1, "%d", (*a)->next->nbr);
 		// dprintf(1, "%d", (*a)->next->next->nbr);

@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   push_swap.h                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: vfedorov <vfedorov@student.42.fr>          +#+  +:+       +#+        */
+/*   By: valeriafedorova <valeriafedorova@studen    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/25 11:51:40 by vfedorov          #+#    #+#             */
-/*   Updated: 2023/06/08 19:08:56 by vfedorov         ###   ########.fr       */
+/*   Updated: 2023/06/09 16:58:43 by valeriafedo      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -40,6 +40,7 @@ void	parcfill(char **av, t_push **a);
 t_push	filla(char **str, t_push **a);
 void	wrb(t_push *b);
 void	pusha(t_push **a, t_push **b);
+int		finmax(t_push **b);
 
 
 
@@ -68,6 +69,7 @@ void	butterfly(t_push **a, t_push **b, int n);
 void	push_swap(t_push **a, t_push **b, int size);
 int		sorted(t_push *a);
 void	trisort(t_push **a);
+void	chersort(t_push **a, t_push **b);
 void	fivsort(t_push **a, t_push **b);
 
 #endif

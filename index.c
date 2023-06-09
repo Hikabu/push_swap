@@ -17,8 +17,8 @@ void giveinx(t_push **a, int size)
 	t_push *tmp;
 	int min;
 
-	i = 0;
-	while ( i <= size - 1)
+	i = 1;
+	while ( i <= size)
 	{
 		tmp = *a;
 		min = INT_MAX;
@@ -42,13 +42,17 @@ void	pusha(t_push **a, t_push **b)
 {
 	while (*b)
 	{
-		printf("%d",  (*b)->nbr);
+		printf("%d", (*b)->nbr);
 		if (*b > ft_pushlast(*b))
-			pa(a, b);
+		{
+			// printf("%d", (*b)->nbr);
+			pa(b, a);
+		}
 		else 
 		{
+			// printf("%d", (*b)->nbr);
 			rrb(b);
-			pa(a, b);
+			pa(b, a);
 		}
 	}
 }

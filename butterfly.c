@@ -3,17 +3,14 @@
 /*                                                        :::      ::::::::   */
 /*   butterfly.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: vfedorov <vfedorov@student.42.fr>          +#+  +:+       +#+        */
+/*   By: valeriafedorova <valeriafedorova@studen    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/06/04 18:32:39 by vfedorov          #+#    #+#             */
-/*   Updated: 2023/06/08 20:16:10 by vfedorov         ###   ########.fr       */
+/*   Updated: 2023/06/09 17:01:15 by valeriafedo      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
-
-
-
 
 void	butterfly(t_push **a, t_push **b, int n)
 {
@@ -24,7 +21,7 @@ void	butterfly(t_push **a, t_push **b, int n)
 	siz = ft_pushsize(*a);
 
 	i = 0;
-	counter = 0;
+	counter = 1;
 	while(i < siz)
 	{
 		if ((*a)->inx <= counter)
@@ -44,7 +41,7 @@ void	butterfly(t_push **a, t_push **b, int n)
 			ra(a);
 		i++;
 	}
-	wrb(*a);
+	// wrb(*b);
 }
 
 
@@ -55,8 +52,24 @@ void	wrb(t_push *b)
 	cur = b;
 	while (cur)
 	{
-		printf("%d ", cur->nbr);
+		printf("%d\n", cur->nbr);
 		cur = cur->next;
 	}
 }
 
+int	finmax(t_push **b)
+{
+	int		max;
+	t_push	*current;
+
+	max = INT_MIN;
+	current = *b;
+	while(current)
+	{
+		if (current->nbr > max)
+			max = current->nbr;
+		current = current->next;
+	}
+	printf("%d", max);
+	return (max);
+}

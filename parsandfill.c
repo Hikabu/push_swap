@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   parsandfill.c                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: vfedorov <vfedorov@student.42.fr>          +#+  +:+       +#+        */
+/*   By: valeriafedorova <valeriafedorova@studen    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/31 11:25:31 by vfedorov          #+#    #+#             */
-/*   Updated: 2023/06/07 18:57:01 by vfedorov         ###   ########.fr       */
+/*   Updated: 2023/06/09 17:25:42 by valeriafedo      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -60,9 +60,9 @@ t_push	*ft_pushlast(t_push *lst)
 {
 	if (!lst)
 		return (NULL);
-	while (lst)
+	while (lst->next)
 	{
-		if (lst-> next == NULL)
+		if (lst && lst-> next == NULL)
 			return (lst);
 		lst = lst->next;
 	}

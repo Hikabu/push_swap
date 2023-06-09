@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   main.c                                             :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: vfedorov <vfedorov@student.42.fr>          +#+  +:+       +#+        */
+/*   By: valeriafedorova <valeriafedorova@studen    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/11 12:45:51 by vfedorov          #+#    #+#             */
-/*   Updated: 2023/06/08 20:21:16 by vfedorov         ###   ########.fr       */
+/*   Updated: 2023/06/09 17:31:11 by valeriafedo      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -34,15 +34,14 @@ void	push_swap(t_push **a, t_push **b, int size)
 		sa(a);
 	else if (size == 3 && !sorted(*a))
 		trisort(a);
-	// else if (size == 4 && !sorted(*a))
-	// 	//chersort(a);
-	// 	;
+	else if (size == 4 && !sorted(*a))
+		chersort(a, b);
 	else if (size == 5 && !sorted(*a))
 		fivsort(a, b);
 	else if (size > 5 && size <= 100)
 	{
 		butterfly(a, b, 1);
-		exit(0);
+		// wrb(*b);
 		pusha(a, b);
 	}
 	
@@ -51,27 +50,32 @@ void	push_swap(t_push **a, t_push **b, int size)
 int main(int ac, char **av)
 {
 	t_push	*a;
-	t_push	*b;
+	// t_push	*b;
 	int		size;
 
 	if (ac > 1)
 	{
 		a = NULL;
-		b = NULL;
+		// b = NULL;
 		parcfill(av, &a);
 		size = stack_size(a);
 		giveinx(&a, size);
+		// rra(&a);
 		// push_swap(&a, &b, size);
-		pb(&a, &b);
-		pb(&a, &b);
-		pb(&a, &b);
-		pb(&a, &b);
-		pb(&a, &b);
-		pb(&a, &b);
-		pb(&a, &b);
-		rb(&b);
-		if (!a)
-			wrb(b);
+		// pb(&a, &b);
+		// pb(&a, &b);
+		// pb(&a, &b);
+		// pb(&a, &b);
+		// pa(&b, &a);
+		// pb(&a, &b);
+		// pb(&a, &b);
+		// pb(&a, &b);
+		// rb(&b);
+		printf("A:\n");
+		wrb(a);
+		// printf("B:\n");
+		// wrb(b);
+		// wrb(a);
 	}
 	return (0);
 }
