@@ -6,7 +6,7 @@
 /*   By: vfedorov <vfedorov@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/11 12:45:51 by vfedorov          #+#    #+#             */
-/*   Updated: 2023/06/11 18:44:36 by vfedorov         ###   ########.fr       */
+/*   Updated: 2023/06/11 19:09:04 by vfedorov         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,46 +14,43 @@
 
 int	sorted(t_push *a)
 {
-	while (a->inx)
+	while (a && a->nbr)
 	{
-		if (a->next && a->next->inx < a->inx)
-			return (0);
 		if (a->next && a->nbr > a->next->nbr)
 			return (0);
-		if (a->next && a->next->inx)
-			a = a->next;
-		else
-			 break ;
+		a = a->next;
 	}
 	return (1);
 }
 
 void	push_swap(t_push **a, t_push **b, int size)
 {
-	int	n;
-
-	n = 1;
-	if (size == 2 && (*a)->inx < (*a)->next->inx)
+	if (size == 2 && (*a)->inx > (*a)->next->inx)
 		sa(a);
-	else if (size == 3 && !sorted(*a))
+	else if (size == 3)
 		trisort(a);
-	else if (size == 4 && !sorted(*a))
+	else if (size == 4)
 		chersort(a, b);
-	else if (size == 5 && !sorted(*a))
+	else if (size == 5)
 		fivsort(a, b);
 	else if (size > 5 && size <= 30)
 	{
-		butterfly(a, b, n);
+		butterfly(a, b, size / 2);
 		pusha(a, b, size);
 	}
 	else if (size > 30 && size <= 50)
 	{
-		butterfly(a, b, n / 4);
+		butterfly(a, b, size / 4);
 		pusha(a, b, size);
 	}
 	else if (size > 50 && size <= 500)
 	{
-		butterfly(a, b, n / 8);
+		butterfly(a, b, size / 8);
+		pusha(a, b, size);
+	}
+	else if (size > 500)
+	{
+		butterfly(a, b, size / 16);
 		pusha(a, b, size);
 	}
 	
@@ -73,7 +70,8 @@ int main(int ac, char **av)
 		parcfill(av, &a);
 		size = stack_size(a);
 		giveinx(&a, size);
-		push_swap(&a, &b, size);
+		if (!sorted(a))
+			push_swap(&a, &b, size);
 		// printf("A:\n");
 		// wrb(a);
 		 
