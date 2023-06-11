@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   butterfly.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: valeriafedorova <valeriafedorova@studen    +#+  +:+       +#+        */
+/*   By: vfedorov <vfedorov@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/06/04 18:32:39 by vfedorov          #+#    #+#             */
-/*   Updated: 2023/06/09 19:45:28 by valeriafedo      ###   ########.fr       */
+/*   Updated: 2023/06/11 18:12:24 by vfedorov         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,7 +19,6 @@ void	butterfly(t_push **a, t_push **b, int n)
 	int siz;
 
 	siz = ft_pushsize(*a);
-
 	i = 0;
 	counter = 1;
 	while(i < siz)
@@ -27,7 +26,6 @@ void	butterfly(t_push **a, t_push **b, int n)
 		if ((*a)->inx <= counter)
 		{
 			pb(a, b);
-			// printf("%d ", (*b)->nbr);
 			rb(b);
 			counter++;
 			i++;
@@ -35,14 +33,12 @@ void	butterfly(t_push **a, t_push **b, int n)
 		else if ((*a)->inx <= counter + n)
 		{
 			pb(a, b);
-			// printf("%d ", (*b)->nbr);
 			counter++;
 			i++;
 		}
 		else
 			ra(a);
 	}
-	// wrb(*b);
 }
 
 
@@ -71,29 +67,19 @@ int	finmax(t_push **b)
 			max = current->nbr;
 		current = current->next;
 	}
-	printf("%d", max);
 	return (max);
 }
-
-int	my_sqrt(int n)
+int	findpos(t_push *b)
 {
+	int	max;
 	int	i;
 
-	i = 1;
-	while (n / i != i)
-		i++;
-	return (i);
-}
-
-int	fin(int n)
-{
-	int	i;
-
-	i = 1;
-	while (n)
+	max = finmax(&b);
+	i = 0;
+	while (b->nbr != max)
 	{
-		n /= 5;
 		i++;
+		b = b->next;
 	}
 	return (i);
 }

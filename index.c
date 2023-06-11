@@ -40,28 +40,45 @@ void giveinx(t_push **a, int size)
 
 void	pusha(t_push **a, t_push **b, int size)
 {
-	while (size)
+	int	max;
+
+	while (*b)
 	{
-		if ((*b)->inx > ft_pushlast(*b)->inx)
+		max = findpos(*b);
+		if (size / 2 >= max && max)
 		{
-			// pa(a,b);
-			write(1, "pa\n", 3);
-			butter_push(a, b);
-			size--;
+			while(--max)
+				rb(b);
 		}
-		else 
-		{
-			rrb(b);
-			write(1, "pa\n", 3);
-			butter_push(a, b);
-			size--;
-		}
-		dprintf(1, "A:\n");
-	wrb(*a);
-	dprintf(1, "B:\n");
-	wrb(*b);
+		else
+			while(max++ < size)
+				rrb(b);
+		write(1, "pa\n", 3);
+		butter_push(a, b);
+		size--;
 	}
 }
+
+
+// void	pusha(t_push **a, t_push **b, int size)
+// {
+// 	while (size)
+// 	{
+// 		if ((*b)->inx > ft_pushlast(*b)->inx)
+// 		{
+// 			write(1, "pa\n", 3);
+// 			butter_push(a, b);
+// 			size--;
+// 		}
+// 		else 
+// 		{
+// 			rrb(b);
+// 			write(1, "pa\n", 3);
+// 			butter_push(a, b);
+// 			size--;
+// 		}
+// 	}
+// }
 
 int	ft_pushsize(t_push *lst)
 {
@@ -75,4 +92,3 @@ int	ft_pushsize(t_push *lst)
 	}
 	return (str_len);
 }
-

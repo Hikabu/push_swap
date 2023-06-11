@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   push.c                                             :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: valeriafedorova <valeriafedorova@studen    +#+  +:+       +#+        */
+/*   By: vfedorov <vfedorov@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/29 12:26:04 by vfedorov          #+#    #+#             */
-/*   Updated: 2023/06/10 00:52:15 by valeriafedo      ###   ########.fr       */
+/*   Updated: 2023/06/11 18:06:25 by vfedorov         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -45,8 +45,6 @@ void	pb(t_push **from, t_push **to)
 void	butter_push(t_push **a, t_push **b)
 {
 	t_push	*tmp;
-
-	
 	
 	if (!(*a))
 	{
@@ -61,23 +59,6 @@ void	butter_push(t_push **a, t_push **b)
 	}	
 	else
 	{
-		// while((*a)->next)
-		// 	(*a) = (*a)->next;
-		// tmp = (*a);
-		// (*a) -> prev = (*b);
-		// (*a) = (*a)->prev;
-		// if((*b)-> next)
-		// {
-		// 	*b = (*b)->next;
-		// 	(*b)->prev = NULL;
-		// }
-		// else 
-		// 	(*b) = NULL;
-		// // (*a)->prev = NULL;
-		// (*a)->next = tmp;
-		// (*a)->next->prev = (*a);
-		// while ((*a)->prev)
-		// 	*a = (*a)-> prev;
 		tmp = *b;
 		*b = (*b)->next;
 		if (*b)

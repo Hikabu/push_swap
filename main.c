@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   main.c                                             :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: valeriafedorova <valeriafedorova@studen    +#+  +:+       +#+        */
+/*   By: vfedorov <vfedorov@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/11 12:45:51 by vfedorov          #+#    #+#             */
-/*   Updated: 2023/06/10 00:52:34 by valeriafedo      ###   ########.fr       */
+/*   Updated: 2023/06/11 18:44:36 by vfedorov         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,9 +30,9 @@ int	sorted(t_push *a)
 
 void	push_swap(t_push **a, t_push **b, int size)
 {
-	// int	n;
+	int	n;
 
-	// n = my_sqrt(size) + fin(size); 
+	n = 1;
 	if (size == 2 && (*a)->inx < (*a)->next->inx)
 		sa(a);
 	else if (size == 3 && !sorted(*a))
@@ -41,13 +41,22 @@ void	push_swap(t_push **a, t_push **b, int size)
 		chersort(a, b);
 	else if (size == 5 && !sorted(*a))
 		fivsort(a, b);
-	else if (size > 5 && size <= 100)
+	else if (size > 5 && size <= 30)
 	{
-		butterfly(a, b, 1);
-		// wrb(*b);
-		
+		butterfly(a, b, n);
 		pusha(a, b, size);
 	}
+	else if (size > 30 && size <= 50)
+	{
+		butterfly(a, b, n / 4);
+		pusha(a, b, size);
+	}
+	else if (size > 50 && size <= 500)
+	{
+		butterfly(a, b, n / 8);
+		pusha(a, b, size);
+	}
+	
 	
 }
 
@@ -64,14 +73,10 @@ int main(int ac, char **av)
 		parcfill(av, &a);
 		size = stack_size(a);
 		giveinx(&a, size);
-		// rra(&a);
 		push_swap(&a, &b, size);
-		// rrb(&b);
 		// printf("A:\n");
 		// wrb(a);
-		// printf("B:\n");
-		// // wrb(÷b);
-		// wrb(a);
+		 
 	}
 	return (0);
 }

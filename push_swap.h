@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   push_swap.h                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: valeriafedorova <valeriafedorova@studen    +#+  +:+       +#+        */
+/*   By: vfedorov <vfedorov@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/25 11:51:40 by vfedorov          #+#    #+#             */
-/*   Updated: 2023/06/09 21:48:12 by valeriafedo      ###   ########.fr       */
+/*   Updated: 2023/06/11 17:42:15 by vfedorov         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -64,13 +64,12 @@ void	sort(t_push **a, t_push **b, int size);
 void	giveinx(t_push **a, int size);
 int		ft_pushsize(t_push *lst);
 void	butterfly(t_push **a, t_push **b, int n);
-int		my_sqrt(int n);
-int		fin(int n);
 void	push_swap(t_push **a, t_push **b, int size);
 int		sorted(t_push *a);
 void	trisort(t_push **a);
 void	chersort(t_push **a, t_push **b);
 void	fivsort(t_push **a, t_push **b);
 void	butter_push(t_push **a, t_push **b);
+int		findpos(t_push *b);
 
 #endif

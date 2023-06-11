@@ -6,7 +6,7 @@
 /*   By: vfedorov <vfedorov@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/18 13:03:06 by vfedorov          #+#    #+#             */
-/*   Updated: 2023/06/04 18:30:30 by vfedorov         ###   ########.fr       */
+/*   Updated: 2023/06/10 18:11:47 by vfedorov         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,7 +19,6 @@ void	ft_duper(char **split)
 	int		cnt;
 	
 	i = 0;
-
 	while (split[i])
 	{
 		while (*split[i] == '0' && *(split[i] + 1) == '0')
