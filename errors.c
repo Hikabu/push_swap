@@ -6,7 +6,7 @@
 /*   By: vfedorov <vfedorov@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/18 13:03:06 by vfedorov          #+#    #+#             */
-/*   Updated: 2023/06/12 15:46:25 by vfedorov         ###   ########.fr       */
+/*   Updated: 2023/06/12 18:02:21 by vfedorov         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -52,6 +52,7 @@ void	overflow(char **split)
 			write(2, "Error\n", 6);
 			exit(1);
 		}
+		free(nmb);
 		i++;
 	}
 }

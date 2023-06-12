@@ -6,7 +6,7 @@
 /*   By: vfedorov <vfedorov@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/25 11:51:40 by vfedorov          #+#    #+#             */
-/*   Updated: 2023/06/12 16:49:38 by vfedorov         ###   ########.fr       */
+/*   Updated: 2023/06/12 19:02:28 by vfedorov         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -42,6 +42,10 @@ void	wrb(t_push *b);
 void	pusha(t_push **a, t_push **b, int size);
 int		finmax(t_push **b);
 void	erwrite(char **av);
+char	*ft_strjoin1(char *s1, char const *s2);
+char	*ft_strdup1(char *s1);
+
+void	free_arr(char **str);//split free
 
 t_push	filla(char **str, t_push **a);
 void	swap(t_push **a);
