@@ -6,41 +6,36 @@
 /*   By: vfedorov <vfedorov@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/06/04 18:32:39 by vfedorov          #+#    #+#             */
-/*   Updated: 2023/06/11 18:12:24 by vfedorov         ###   ########.fr       */
+/*   Updated: 2023/06/12 15:44:20 by vfedorov         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
-void	butterfly(t_push **a, t_push **b, int n)
+void	butterfly(t_push **a, t_push **b, int siz)
 {
 	int	counter;
-	int	i;
-	int siz;
+	int	n;
 
-	siz = ft_pushsize(*a);
-	i = 0;
+	n = siz;
 	counter = 1;
-	while(i < siz)
+	while (*a)
 	{
 		if ((*a)->inx <= counter)
 		{
 			pb(a, b);
 			rb(b);
 			counter++;
-			i++;
 		}
 		else if ((*a)->inx <= counter + n)
 		{
 			pb(a, b);
 			counter++;
-			i++;
 		}
 		else
 			ra(a);
 	}
 }
-
 
 void	wrb(t_push *b)
 {
@@ -61,14 +56,15 @@ int	finmax(t_push **b)
 
 	max = INT_MIN;
 	current = *b;
-	while(current)
+	while (current)
 	{
-		if (current->nbr > max)
-			max = current->nbr;
+		if (current->inx > max)
+		max = current->inx;
 		current = current->next;
 	}
 	return (max);
 }
+
 int	findpos(t_push *b)
 {
 	int	max;
@@ -76,7 +72,7 @@ int	findpos(t_push *b)
 
 	max = finmax(&b);
 	i = 0;
-	while (b->nbr != max)
+	while (b->inx != max)
 	{
 		i++;
 		b = b->next;

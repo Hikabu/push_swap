@@ -6,7 +6,7 @@
 /*   By: vfedorov <vfedorov@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/25 11:51:40 by vfedorov          #+#    #+#             */
-/*   Updated: 2023/06/11 17:42:15 by vfedorov         ###   ########.fr       */
+/*   Updated: 2023/06/12 16:49:38 by vfedorov         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,12 +24,12 @@
 
 typedef struct s_push
 {
-	int		inx;
-	int 	val;
-	int		nbr;
-	struct	s_push *next;
-	struct	s_push *prev;
-}	t_push;
+	int				inx;
+	int				val;
+	int				nbr;
+	struct s_push	*next;
+	struct s_push	*prev;
+}		t_push;
 
 void	vse_errorbl(char **split);
 int		empty(char **av);
@@ -41,8 +41,7 @@ t_push	filla(char **str, t_push **a);
 void	wrb(t_push *b);
 void	pusha(t_push **a, t_push **b, int size);
 int		finmax(t_push **b);
-
-
+void	erwrite(char **av);
 
 t_push	filla(char **str, t_push **a);
 void	swap(t_push **a);
@@ -59,17 +58,16 @@ void	reverse(t_push **a);
 void	rra(t_push **a);
 void	rrb(t_push **b);
 void	rrr(t_push **a, t_push **b);
-void	sort(t_push **a, t_push **b, int size);
 
 void	giveinx(t_push **a, int size);
 int		ft_pushsize(t_push *lst);
-void	butterfly(t_push **a, t_push **b, int n);
+void	butterfly(t_push **a, t_push **b, int size);
 void	push_swap(t_push **a, t_push **b, int size);
 int		sorted(t_push *a);
 void	trisort(t_push **a);
 void	chersort(t_push **a, t_push **b);
 void	fivsort(t_push **a, t_push **b);
-void	butter_push(t_push **a, t_push **b);
 int		findpos(t_push *b);
+int		ft_wordcount(char const *s, char c);
 
 #endif

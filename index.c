@@ -11,14 +11,14 @@
 /* ************************************************************************** */
 #include "push_swap.h"
 
-void giveinx(t_push **a, int size)
+void	giveinx(t_push **a, int size)
 {
-	int i;
-	t_push *tmp;
-	int min;
+	int		i;
+	t_push	*tmp;
+	int		min;
 
 	i = 1;
-	while ( i <= size)
+	while (i <= size)
 	{
 		tmp = *a;
 		min = INT_MAX;
@@ -34,7 +34,7 @@ void giveinx(t_push **a, int size)
 			tmp = tmp->next;
 		}
 		tmp->inx = i;
-		i++;
+			i++;
 	}
 }
 
@@ -45,40 +45,18 @@ void	pusha(t_push **a, t_push **b, int size)
 	while (*b)
 	{
 		max = findpos(*b);
-		if (size / 2 >= max && max)
+		if (size / 2 >= max)
 		{
-			while(--max)
+			while (max--)
 				rb(b);
 		}
 		else
-			while(max++ < size)
+			while (max++ < size)
 				rrb(b);
-		write(1, "pa\n", 3);
-		butter_push(a, b);
+		pa(b, a);
 		size--;
 	}
 }
-
-
-// void	pusha(t_push **a, t_push **b, int size)
-// {
-// 	while (size)
-// 	{
-// 		if ((*b)->inx > ft_pushlast(*b)->inx)
-// 		{
-// 			write(1, "pa\n", 3);
-// 			butter_push(a, b);
-// 			size--;
-// 		}
-// 		else 
-// 		{
-// 			rrb(b);
-// 			write(1, "pa\n", 3);
-// 			butter_push(a, b);
-// 			size--;
-// 		}
-// 	}
-// }
 
 int	ft_pushsize(t_push *lst)
 {

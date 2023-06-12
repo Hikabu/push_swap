@@ -3,25 +3,25 @@
 /*                                                        :::      ::::::::   */
 /*   parsandfill.c                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: valeriafedorova <valeriafedorova@studen    +#+  +:+       +#+        */
+/*   By: vfedorov <vfedorov@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/31 11:25:31 by vfedorov          #+#    #+#             */
-/*   Updated: 2023/06/09 23:38:52 by valeriafedo      ###   ########.fr       */
+/*   Updated: 2023/06/12 17:03:58 by vfedorov         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
-void spli(char *str, t_push **a)
+void	spli(char *str, t_push **a)
 {
 	char	**split;
-	
+
 	split = ft_split(str, ' ');
 	if (!*split)
-		{
-			write(2, "Error\n", 6);
-			exit(1);
-		}
+	{
+		write(2, "Error\n", 6);
+		exit(1);
+	}
 	vse_errorbl(split);
 	filla(split, a);
 }
@@ -34,20 +34,14 @@ void	parcfill(char **av, t_push **a)
 
 	i = 1;
 	if (empty(av))
-	{
-		write(2, "Error\n", 6);
-		exit(1);
-	}
+		erwrite(av);
 	str = ft_strdup(av[i]);
-	i++;	
+	i++;
 	while (av[i])
 	{
 		tmp = ft_strjoin(str, " ");
 		if (!tmp && !*tmp)
-		{
-			write(2, "Error\n", 6);
-			exit(1);
-		}
+			erwrite(av);
 		free(str);
 		str = ft_strjoin(tmp, av[i]);
 		free(tmp);
@@ -59,13 +53,14 @@ void	parcfill(char **av, t_push **a)
 t_push	*ft_pushlast(t_push *lst)
 {
 	t_push	*tmp;
+
 	if (!lst)
 		return (NULL);
 	while (lst)
 	{
 		if (lst-> next == NULL)
 			return (lst);
-		tmp = lst; 
+		tmp = lst;
 		lst = lst->next;
 		lst->prev = tmp;
 	}
@@ -91,21 +86,22 @@ t_push	filla(char **str, t_push **a)
 			*a = t;
 		i++;
 	}
+	while (1)
+		;
 	return (**a);
 }
 
-int stack_size(t_push *a)
+int	stack_size(t_push *a)
 {
-    int size;
-    
-    size = 0;
-    if (!a)
-        return (0);
-    while (a)
-    {
-        a = a->next;
-        size++;
-    }
-    return (size);
+	int	size;
+
+	size = 0;
+	if (!a)
+		return (0);
+	while (a)
+	{
+		a = a->next;
+		size++;
+	}
+	return (size);
 }
- 

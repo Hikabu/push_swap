@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   sorting_tri_five.c                                 :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: valeriafedorova <valeriafedorova@studen    +#+  +:+       +#+        */
+/*   By: vfedorov <vfedorov@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/11 12:46:09 by vfedorov          #+#    #+#             */
-/*   Updated: 2023/06/09 16:44:03 by valeriafedo      ###   ########.fr       */
+/*   Updated: 2023/06/12 15:59:31 by vfedorov         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -48,19 +48,26 @@ void	chersort(t_push **a, t_push **b)
 	pa(b, a);
 	ra(a);
 }
+
 void	fivsort(t_push **a, t_push **b)
 {
 	while ((*a)->inx != 1)
 		ra(a);
 	pb(a, b);
-	// wrb(*a);
 	while ((*a)->inx != 2)
 		ra(a);
 	pb(a, b);
-	// wrb(*a);
 	trisort(a);
 	pa(b, a);
-	// wrb(*a);
 	pa(b, a);
-	
+}
+
+int	ny_sqrt(int n)
+{
+	int	i;
+
+	i = 1;
+	while (n / i != i)
+		i++;
+	return (i);
 }

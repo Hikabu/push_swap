@@ -6,7 +6,7 @@
 /*   By: vfedorov <vfedorov@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/11 12:45:51 by vfedorov          #+#    #+#             */
-/*   Updated: 2023/06/11 19:09:04 by vfedorov         ###   ########.fr       */
+/*   Updated: 2023/06/12 17:01:03 by vfedorov         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,13 +14,37 @@
 
 int	sorted(t_push *a)
 {
-	while (a && a->nbr)
+	while (a && a->next)
 	{
-		if (a->next && a->nbr > a->next->nbr)
+		if (a->next && a->inx > a->next->inx)
 			return (0);
 		a = a->next;
 	}
 	return (1);
+}
+
+void	butter_fly(t_push **a, t_push**b, int size)
+{
+	if (size > 5 && size < 30)
+	{
+		butterfly(a, b, size / 2);
+		pusha(a, b, size);
+	}
+	else if (size >= 30 && size < 50)
+	{
+		butterfly(a, b, size / 4);
+		pusha(a, b, size);
+	}
+	else if (size >= 50 && size < 500)
+	{
+		butterfly(a, b, size / 8);
+		pusha(a, b, size);
+	}
+	else if (size >= 500)
+	{
+		butterfly(a, b, size / 16);
+		pusha(a, b, size);
+	}
 }
 
 void	push_swap(t_push **a, t_push **b, int size)
@@ -33,31 +57,11 @@ void	push_swap(t_push **a, t_push **b, int size)
 		chersort(a, b);
 	else if (size == 5)
 		fivsort(a, b);
-	else if (size > 5 && size <= 30)
-	{
-		butterfly(a, b, size / 2);
-		pusha(a, b, size);
-	}
-	else if (size > 30 && size <= 50)
-	{
-		butterfly(a, b, size / 4);
-		pusha(a, b, size);
-	}
-	else if (size > 50 && size <= 500)
-	{
-		butterfly(a, b, size / 8);
-		pusha(a, b, size);
-	}
-	else if (size > 500)
-	{
-		butterfly(a, b, size / 16);
-		pusha(a, b, size);
-	}
-	
-	
+	else if (size > 5)
+		butter_fly(a, b, size);
 }
 
-int main(int ac, char **av)
+int	main(int ac, char **av)
 {
 	t_push	*a;
 	t_push	*b;
@@ -72,10 +76,6 @@ int main(int ac, char **av)
 		giveinx(&a, size);
 		if (!sorted(a))
 			push_swap(&a, &b, size);
-		// printf("A:\n");
-		// wrb(a);
-		 
 	}
 	return (0);
 }
-

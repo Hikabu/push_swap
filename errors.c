@@ -6,7 +6,7 @@
 /*   By: vfedorov <vfedorov@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/18 13:03:06 by vfedorov          #+#    #+#             */
-/*   Updated: 2023/06/10 18:11:47 by vfedorov         ###   ########.fr       */
+/*   Updated: 2023/06/12 15:46:25 by vfedorov         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,28 +16,24 @@ void	ft_duper(char **split)
 {
 	int		i;
 	int		f;
-	int		cnt;
-	
+	int		a;
+
 	i = 0;
-	while (split[i])
+	while (split[++i])
 	{
-		while (*split[i] == '0' && *(split[i] + 1) == '0')
-			split[i]++;
-		cnt = 0;
-		f = 0;		
-		while (split[f])
+		f = 0;
+		while (f < i)
 		{
-			if (ft_strncmp(split[i], split[f], ft_strlen(split[i])) == 0 
-				&& ft_strncmp(split[i], split[f], ft_strlen(split[f])) == 0)
-					cnt++;
-			if (cnt > 1)
+			a = ft_strlen(split[i]);
+			if (ft_strlen(split[i]) < ft_strlen(split[f]))
+				a = ft_strlen(split[f]);
+			if (!ft_strncmp(split[i], split[f], a))
 			{
 				write(2, "Error\n", 6);
-				exit(1);	
+				exit(1);
 			}
 			f++;
 		}
-		i++;
 	}
 }
 
@@ -45,13 +41,13 @@ void	overflow(char **split)
 {
 	char	*nmb;
 	int		i;
-	
+
 	i = 0;
 	while (split[i])
 	{
 		nmb = ft_itoa(ft_atoi(split[i]));
 		if (ft_strncmp(nmb, split[i], ft_strlen(nmb) != 0
-			&& ft_strncmp(nmb, split[i], ft_strlen(split[i]) != 0)))
+				&& ft_strncmp(nmb, split[i], ft_strlen(split[i]) != 0)))
 		{
 			write(2, "Error\n", 6);
 			exit(1);
@@ -74,7 +70,7 @@ void	chedigit(char **str)
 			if (!ft_isdigit(*tmp))
 			{
 				write(2, "Error\n", 6);
-				exit(1);	
+				exit(1);
 			}		
 			if (ft_isdigit(*tmp))
 				tmp++;
