@@ -3,7 +3,7 @@ BON				=	pibon
 SRCS 			=	$(wildcard *.c)
 HEADERS 		=	$(wildcard *.h)
 OBJ 			=	$(SRCS:.c=.o)
-CFLAGS 			=	-Wall -Wextra -Werror -g
+CFLAGS 			=	-Wall -Wextra -Werror -g 
 IFLAGS			=	-Ilibft
 LFLAGS			=	-Llibft -lft
 RM				=	rm -rf
