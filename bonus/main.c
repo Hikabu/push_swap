@@ -6,7 +6,7 @@
 /*   By: vfedorov <vfedorov@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/06/13 00:00:49 by vfedorov          #+#    #+#             */
-/*   Updated: 2023/06/13 05:12:08 by vfedorov         ###   ########.fr       */
+/*   Updated: 2023/06/13 17:44:47 by vfedorov         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -115,9 +115,9 @@ int	main(int ac, char **av)
 		size = stack_size(a);
 		giveinx(&a, size);
 		instruct(&a, &b, av);
-		if (sorted(a) == 1)
+		if (sorted(a) == 1 && !b)
 			write(1, "OK\n", 3);
-		else
+		else if ((sorted(a) == 0 || b))
 			write(1, "KO\n", 3);
 	}
 }
