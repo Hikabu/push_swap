@@ -1,16 +1,16 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   parsandfill.c                                      :+:      :+:    :+:   */
+/*   utils.c                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: vfedorov <vfedorov@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/05/31 11:25:31 by vfedorov          #+#    #+#             */
-/*   Updated: 2023/06/12 20:10:52 by vfedorov         ###   ########.fr       */
+/*   Created: 2023/06/13 02:34:10 by vfedorov          #+#    #+#             */
+/*   Updated: 2023/06/13 05:15:18 by vfedorov         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "push_swap.h"
+#include "push_bonus.h"
 
 void	spli(char *str, t_push **a)
 {
@@ -28,46 +28,44 @@ void	spli(char *str, t_push **a)
 		free_arr(split);
 }
 
-void	parcfill(char **av, t_push **a)
+void	giveinx(t_push **a, int size)
 {
-	char	*str;
-	char	*tmp;
 	int		i;
+	t_push	*tmp;
+	int		min;
 
 	i = 1;
-	if (empty(av))
-		erwrite(av);
-	str = ft_strdup(av[i]);
-	i++;
-	while (av[i])
+	while (i <= size)
 	{
-		tmp = ft_strjoin(str, " ");
-		if (!tmp && !*tmp)
-			erwrite(av);
-		free(str);
-		str = ft_strjoin(tmp, av[i]);
-		free(tmp);
-		i++;
+		tmp = *a;
+		min = INT_MAX;
+		while (tmp)
+		{
+			if (tmp->inx == -1 && tmp->nbr < min)
+				min = tmp->nbr;
+			tmp = tmp->next;
+		}
+		tmp = *a;
+		while (tmp->nbr != min || tmp->inx != -1)
+		{
+			tmp = tmp->next;
+		}
+		tmp->inx = i;
+			i++;
 	}
-	spli(str, a);
-	free(str);
 }
 
-t_push	*ft_pushlast(t_push *lst)
+void	free_arr(char **str)
 {
-	t_push	*tmp;
+	int		i;
 
-	if (!lst)
-		return (NULL);
-	while (lst)
+	i = 0;
+	while (str[i])
 	{
-		if (lst-> next == NULL)
-			return (lst);
-		tmp = lst;
-		lst = lst->next;
-		lst->prev = tmp;
+		free(str[i]);
+		i++;
 	}
-	return (lst);
+	free(str);
 }
 
 t_push	filla(char **str, t_push **a)
@@ -92,20 +90,21 @@ t_push	filla(char **str, t_push **a)
 	return (**a);
 }
 
-int	stack_size(t_push *a)
+void	vse_errorbl(char **split)
 {
-	int		size;
-	t_push	*tmp;
-
-	size = 0;
-	tmp = (a);
-	if (!a)
-		return (0);
-	while (a)
+	if (ft_duper(split))
 	{
-		a = a->next;
-		size++;
+		write(1, "Error\n", 6);
+		exit(1);
 	}
-	a = tmp;
-	return (size);
+	else if (overflow(split))
+	{
+		write(1, "Error\n", 6);
+		exit(1);
+	}
+	else if (chedigit(split))
+	{
+		write(1, "Error\n", 6);
+		exit(1);
+	}
 }

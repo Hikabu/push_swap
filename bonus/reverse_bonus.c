@@ -1,53 +1,50 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   rotate_bonus.c                                     :+:      :+:    :+:   */
+/*   reverse_bonus.c                                    :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: vfedorov <vfedorov@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/05/29 12:25:11 by vfedorov          #+#    #+#             */
-/*   Updated: 2023/06/12 22:18:27 by vfedorov         ###   ########.fr       */
+/*   Created: 2023/05/30 14:21:37 by vfedorov          #+#    #+#             */
+/*   Updated: 2023/06/13 03:44:29 by vfedorov         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "push_swap.h"
+#include "push_bonus.h"
 
-void	rotate(t_push **a)
+void	reverse(t_push **a)
 {
 	t_push	*top;
 	t_push	*tail;
+	t_push	*pretail;
 
 	if (*a && (*a)->next)
 	{
-		top = *a;
-		tail = ft_pushlast(top);
-		*a = top->next;
-		top->next = NULL;
-		tail->next = top;
+		tail = *a;
+		top = ft_pushlast(tail);
+		top->next = tail;
+		if (top-> prev)
+		{
+			pretail = top->prev;
+			pretail->next = NULL;
+			top->prev = NULL;
+		}
+		*a = top;
 	}
 }
 
-void	ra(t_push **a)
+void	rra(t_push **a)
 {
-	rotate (a);
-	write(1, "ra\n", 3);
+	reverse(a);
 }
 
-void	rb(t_push **b)
+void	rrb(t_push **b)
 {
-	rotate (b);
-	write(1, "rb\n", 3);
+	reverse(b);
 }
 
-void	free_arr(char **str)
+void	rrr(t_push **a, t_push **b)
 {
-	int		i;
-
-	i = 0;
-	while (str[i])
-	{
-		free(str[i]);
-		i++;
-	}
-	free(str);
+	reverse(a);
+	reverse(b);
 }

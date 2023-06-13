@@ -6,7 +6,7 @@
 /*   By: vfedorov <vfedorov@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/25 11:51:40 by vfedorov          #+#    #+#             */
-/*   Updated: 2023/06/12 19:02:28 by vfedorov         ###   ########.fr       */
+/*   Updated: 2023/06/12 22:34:55 by vfedorov         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -45,7 +45,7 @@ void	erwrite(char **av);
 char	*ft_strjoin1(char *s1, char const *s2);
 char	*ft_strdup1(char *s1);
 
-void	free_arr(char **str);//split free
+void	free_arr(char **str);
 
 t_push	filla(char **str, t_push **a);
 void	swap(t_push **a);
@@ -73,5 +73,6 @@ void	chersort(t_push **a, t_push **b);
 void	fivsort(t_push **a, t_push **b);
 int		findpos(t_push *b);
 int		ft_wordcount(char const *s, char c);
+int		finmin(t_push **b);
 
 #endif

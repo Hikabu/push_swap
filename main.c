@@ -6,7 +6,7 @@
 /*   By: vfedorov <vfedorov@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/11 12:45:51 by vfedorov          #+#    #+#             */
-/*   Updated: 2023/06/12 20:01:11 by vfedorov         ###   ########.fr       */
+/*   Updated: 2023/06/12 23:43:08 by vfedorov         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -71,11 +71,9 @@ int	main(int ac, char **av)
 	{
 		a = NULL;
 		b = NULL;
-		
 		parcfill(av, &a);
 		size = stack_size(a);
 		giveinx(&a, size);
-
 		if (!sorted(a))
 			push_swap(&a, &b, size);
 	}

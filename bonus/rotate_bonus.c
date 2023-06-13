@@ -6,11 +6,11 @@
 /*   By: vfedorov <vfedorov@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/29 12:25:11 by vfedorov          #+#    #+#             */
-/*   Updated: 2023/06/12 22:18:27 by vfedorov         ###   ########.fr       */
+/*   Updated: 2023/06/13 05:14:16 by vfedorov         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "push_swap.h"
+#include "push_bonus.h"
 
 void	rotate(t_push **a)
 {
@@ -30,24 +30,22 @@ void	rotate(t_push **a)
 void	ra(t_push **a)
 {
 	rotate (a);
-	write(1, "ra\n", 3);
 }
 
 void	rb(t_push **b)
 {
 	rotate (b);
-	write(1, "rb\n", 3);
 }
 
-void	free_arr(char **str)
+void	rr(t_push **a, t_push **b)
 {
-	int		i;
+	rotate (a);
+	rotate (b);
+}
 
-	i = 0;
-	while (str[i])
-	{
-		free(str[i]);
-		i++;
-	}
-	free(str);
+void	erwrite(char **av)
+{
+	(void)av;
+	write(2, "Error\n", 6);
+	exit(1);
 }

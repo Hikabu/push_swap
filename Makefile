@@ -1,5 +1,5 @@
 NAME			=	push_swap
-BON				=	pibon
+BON				=	cheker
 SRCS 			=	$(wildcard *.c)
 HEADERS 		=	$(wildcard *.h)
 OBJ 			=	$(SRCS:.c=.o)

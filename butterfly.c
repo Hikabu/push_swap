@@ -6,7 +6,7 @@
 /*   By: vfedorov <vfedorov@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/06/04 18:32:39 by vfedorov          #+#    #+#             */
-/*   Updated: 2023/06/12 15:44:20 by vfedorov         ###   ########.fr       */
+/*   Updated: 2023/06/12 23:44:00 by vfedorov         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -76,6 +76,30 @@ int	findpos(t_push *b)
 	{
 		i++;
 		b = b->next;
+	}
+	return (i);
+}
+
+int	finmin(t_push **b)
+{
+	int		min;
+	t_push	*current;
+	int		i;
+
+	i = 0;
+	min = INT_MAX;
+	current = *b;
+	while (current)
+	{
+		if (current->nbr < min)
+			min = current->nbr;
+		current = current->next;
+	}
+	current = *b;
+	while (current && current->nbr != min)
+	{
+		current = current->next;
+		i++;
 	}
 	return (i);
 }
